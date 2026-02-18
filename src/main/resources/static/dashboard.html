@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGNETAR - Central do Gamer</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">MAGNETAR</div>
+        <div class="nav-right">
+            <div class="user-badge">
+                <div class="user-icon" id="user-icon">?</div>
+                <span id="gamer-nome-display">Carregando...</span>
+            </div>
+            <span id="badge-anonimo"></span>
+            <button class="btn-neon btn-sair" onclick="logout()">SAIR</button>
+        </div>
+    </nav>
+
+    <div class="main-grid">
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Meus Avatares</h2>
+                <button id="btn-criar" class="btn-neon">+ NOVO PERSONAGEM</button>
+            </div>
+            <div id="lista-personagens" class="loading">🔄 Sincronizando dados...</div>
+        </section>
+
+        <aside class="panel">
+            <h3>🔍 Explorar Multiverso</h3>
+            <div class="search-box">
+                <input type="text" id="input-busca" placeholder="Scanner de codinome...">
+                <button onclick="buscar()" class="btn-neon" style="width: auto; padding: 0 20px;">SCAN</button>
+            </div>
+            <div id="resultados-busca"></div>
+        </aside>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

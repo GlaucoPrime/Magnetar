@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - MAGNETAR MMO</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="css/personagem.css">
+</head>
+<body>
+    <div class="header">
+        <img id="avatar" class="avatar" src="https://via.placeholder.com/160" alt="Avatar">
+        <div class="profile-info">
+            <h1 id="p-nome" class="profile-name">Carregando...</h1>
+            <p id="p-jogo" class="profile-game">...</p>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-group" onclick="mostrarSeguidores()">
+            <span id="c-seguidores" class="stat-num">0</span>
+            <div class="stat-label">SEGUIDORES</div>
+        </div>
+        <div class="stat-group" onclick="mostrarSeguindo()">
+            <span id="c-seguindo" class="stat-num">0</span>
+            <div class="stat-label">SEGUINDO</div>
+        </div>
+        <div style="flex-grow:1; text-align:right; display:flex; gap:15px; justify-content:flex-end; align-items:center;">
+            <span id="badge-modo"></span>
+            <button id="btn-seguir" class="btn-neon" onclick="seguir()" style="display:none">SEGUIR</button>
+            <button class="btn-neon btn-secondary" onclick="voltar()">← VOLTAR</button>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="post-card">
+            <h4 style="margin: 0 0 20px 0; font-size: 1.3rem;">🔍 Scanner de Setor</h4>
+            <div style="display:flex; gap:10px">
+                <input type="text" id="in-radar" placeholder="Procurar outros heróis...">
+                <button class="btn-neon" onclick="radar()">SCAN</button>
+            </div>
+            <div id="radar-results" class="search-results"></div>
+        </div>
+
+        <div id="area-post" style="display:none; margin-bottom: 40px;">
+            <div class="post-card">
+                <h4 style="margin: 0 0 20px 0; font-size: 1.3rem;">✍️ Criar Post</h4>
+                <textarea id="msg-post" rows="4" placeholder="Diga algo ao multiverso..."></textarea>
+                <button class="btn-neon" style="width: 100%;" onclick="postar()">📡 PUBLICAR POST</button>
+            </div>
+        </div>
+
+        <div id="feed"></div>
+    </div>
+
+    <!-- MODAL SEGUIDORES -->
+    <div id="modal-seguidores" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-titulo">Seguidores</h2>
+                <button class="close-modal" onclick="fecharModal()">&times;</button>
+            </div>
+            <div id="modal-lista"></div>
+        </div>
+    </div>
+
+    <script src="js/personagem.js"></script>
+</body>
+</html>

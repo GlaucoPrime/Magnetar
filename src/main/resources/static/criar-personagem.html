@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Personagem - MAGNETAR MMO</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="css/criar-personagem.css">
+</head>
+<body>
+    <div class="form-panel">
+        <h2>✨ SINCRONIZAR NOVO AVATAR</h2>
+        
+        <div id="erro-container"></div>
+        
+        <form id="form-p">
+            <label>Nome do Personagem <span class="required">*</span></label>
+            <input type="text" id="nome" required placeholder="Ex: Scorpion" maxlength="50">
+            
+            <label>Associe a um Jogo <span class="required">*</span></label>
+            <select id="jogo" required>
+                <option value="">Selecione um jogo</option>
+                <option value="Mortal Kombat">Mortal Kombat</option>
+                <option value="Street Fighter">Street Fighter</option>
+                <option value="God of War">God of War</option>
+                <option value="The Last of Us">The Last of Us</option>
+                <option value="Undertale">Undertale</option>
+                <option value="Final Fantasy">Final Fantasy</option>
+                <option value="League of Legends">League of Legends</option>
+                <option value="Overwatch">Overwatch</option>
+                <option value="Valorant">Valorant</option>
+                <option value="Outro">Outro (digite abaixo)</option>
+            </select>
+            
+            <input type="text" id="jogo-outro" placeholder="Nome do jogo" style="display:none; margin-top:10px;">
+
+            <label>URL da Imagem de Perfil</label>
+            <input type="url" id="foto" placeholder="https://exemplo.com/imagem.jpg">
+            <div id="image-preview" class="image-preview"></div>
+
+            <label>Biografia / Descrição Curta</label>
+            <textarea id="bio" placeholder="Ex: Espectro de Netherrealm em busca de vingança..." maxlength="500"></textarea>
+            <div id="char-count" class="char-count">0 / 500</div>
+
+            <button type="submit" class="btn-neon" id="btn-submit">🚀 CRIAR IDENTIDADE</button>
+            <button type="button" class="btn-cancel" onclick="history.back()">← Cancelar</button>
+        </form>
+    </div>
+
+    <script src="js/criar-personagem.js"></script>
+</body>
+</html>

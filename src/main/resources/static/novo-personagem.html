@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Novo Personagem</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #121212; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #1e1e1e; padding: 30px; border-radius: 12px; width: 400px; border: 1px solid #333; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: 1px solid #444; background: #2c2c2c; color: white; box-sizing: border-box; }
+        .btn { width: 100%; padding: 12px; background: #03dac6; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .nav-link { display: block; margin-top: 15px; color: #bb86fc; text-decoration: none; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Novo Personagem</h2>
+        <input type="text" id="nome" placeholder="Nome do Personagem (ex: Sub-Zero)">
+        <input type="text" id="jogo" placeholder="Nome do Jogo (ex: Mortal Kombat)">
+        <input type="text" id="imagemUrl" placeholder="Link da Imagem (URL)">
+        <button class="btn" onclick="salvar()">Criar Personagem</button>
+        <a href="/dashboard.html" class="nav-link">← Voltar para Meus Personagens</a>
+    </div>
+
+    <script>
+        async function salvar() {
+            const gamerId = localStorage.getItem('gamerId');
+            if (!gamerId) {
+                alert("Erro: Você precisa estar logado!");
+                window.location.href = '/index.html';
+                return;
+            }
+
+            const data = {
+                nome: document.getElementById('nome').value,
+                jogo: document.getElementById('jogo').value,
+                imagemUrl: document.getElementById('imagemUrl').value,
+                gamer: { id: parseInt(gamerId) } // Vincula ao dono da conta
+            };
+
+            const res = await fetch('/api/personagens', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (res.ok) {
+                alert("Personagem criado com sucesso!");
+                window.location.href = '/dashboard.html';
+            } else {
+                alert("Erro ao criar personagem.");
+            }
+        }
+    </script>
+</body>
+</html>

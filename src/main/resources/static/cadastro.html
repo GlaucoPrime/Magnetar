@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - MAGNETAR MMO</title>
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <div class="login-card">
+        <h1>REGISTRO</h1>
+        <div class="subtitle">Crie sua conta e entre no multiverso</div>
+        
+        <div id="erro-msg"></div>
+        
+        <form id="form-cadastro">
+            <input type="text" id="nome" placeholder="Nome Completo *" required minlength="3">
+            <input type="email" id="email" placeholder="E-mail *" required>
+            <input type="password" id="senha" placeholder="Senha *" required minlength="6">
+            <div id="strength-indicator" class="password-strength"></div>
+            <button type="submit" class="btn-reg" id="btn-submit">CRIAR CONTA</button>
+        </form>
+        
+        <a href="/index.html">← Voltar ao Login</a>
+    </div>
+
+    <script src="js/cadastro.js"></script>
+</body>
+</html>
